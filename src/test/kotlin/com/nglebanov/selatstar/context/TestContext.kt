@@ -1,8 +1,5 @@
 package com.nglebanov.selatstar.context
 
-import org.springframework.stereotype.Component
-
-@Component
 class TestContext {
 
     private val map: MutableMap<String, String> = mutableMapOf()
@@ -18,6 +15,7 @@ class TestContext {
     }
 
     fun show() {
+        println("current test context:")
         map.forEach { println("${it.key} = ${it.value}") }
     }
 }

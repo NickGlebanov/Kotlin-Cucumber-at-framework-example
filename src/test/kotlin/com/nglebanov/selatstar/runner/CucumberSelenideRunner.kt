@@ -10,7 +10,8 @@ import org.testng.annotations.*
 
 @CucumberOptions(
         features = ["src/test/resources/features"],
-        glue = ["com.nglebanov.selatstar.stepdefs"]
+        glue = ["com.nglebanov.selatstar.stepdefs"],
+        strict = true
 )
 class CucumberSelenideRunner {
     private var testNGCucumberRunner: TestNGCucumberRunner? = null
