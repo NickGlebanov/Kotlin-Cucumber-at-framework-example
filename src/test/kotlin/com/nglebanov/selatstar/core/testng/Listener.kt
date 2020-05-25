@@ -1,4 +1,4 @@
-package com.nglebanov.selatstar.testng
+package com.nglebanov.selatstar.core.testng
 
 import org.testng.*
 

@@ -3,11 +3,11 @@
 <suite name="run tests in parallel" parallel="tests" verbose="1" configfailurepolicy="continue" thread-count="1"
        data-provider-thread-count="1">
     <listeners>
-        <listener class-name="com.nglebanov.selatstar.testng.Listener"></listener>
+        <listener class-name="com.nglebanov.selatstar.core.testng.Listener"></listener>
     </listeners>
     <test name="Tests">
         <classes>
-            <class name="com.nglebanov.selatstar.runner.CucumberSelenideRunner"/>
+            <class name="com.nglebanov.selatstar.core.runner.CucumberSelenideRunner"/>
         </classes>
     </test>
 </suite>

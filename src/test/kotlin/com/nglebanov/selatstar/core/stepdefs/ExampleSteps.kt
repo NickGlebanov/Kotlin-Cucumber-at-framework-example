@@ -1,10 +1,10 @@
-package com.nglebanov.selatstar.stepdefs
+package com.nglebanov.selatstar.core.stepdefs
 
 import com.codeborne.selenide.Selenide
 import com.nglebanov.selatstar.SelatstarApplication
 import com.nglebanov.selatstar.TestConfig
-import com.nglebanov.selatstar.base.BaseSteps
-import com.nglebanov.selatstar.context.ThreadContext
+import com.nglebanov.selatstar.core.base.BaseSteps
+import com.nglebanov.selatstar.core.context.ThreadContext
 import org.apache.commons.lang3.RandomStringUtils
 import org.assertj.core.api.Assertions.assertThat
 import org.slf4j.Logger

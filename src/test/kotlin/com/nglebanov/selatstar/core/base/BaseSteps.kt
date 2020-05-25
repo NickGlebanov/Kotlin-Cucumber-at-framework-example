@@ -1,10 +1,10 @@
-package com.nglebanov.selatstar.base
+package com.nglebanov.selatstar.core.base
 
 import io.cucumber.java8.En
 import io.cucumber.java8.StepDefinitionBody
 import io.qameta.allure.Allure
 
-open abstract class BaseSteps : En {
+abstract class BaseSteps : En {
     override fun But(expression: String?, body: StepDefinitionBody.A0?) {
         Allure.step(expression)
         super.But(expression, body)

@@ -1,4 +1,4 @@
-package com.nglebanov.selatstar.context
+package com.nglebanov.selatstar.core.context
 
 class TestContext {
 

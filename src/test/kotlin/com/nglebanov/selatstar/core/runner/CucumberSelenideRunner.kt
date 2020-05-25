@@ -1,4 +1,4 @@
-package com.nglebanov.selatstar.runner
+package com.nglebanov.selatstar.core.runner
 
 import com.codeborne.selenide.Selenide
 import io.cucumber.testng.CucumberOptions
@@ -10,7 +10,7 @@ import org.testng.annotations.*
 
 @CucumberOptions(
         features = ["src/test/resources/features"],
-        glue = ["com.nglebanov.selatstar.stepdefs"],
+        glue = ["com.nglebanov.selatstar.core.stepdefs", "com.nglebanov.selatstar.market.steps"],
         strict = true
 )
 class CucumberSelenideRunner {
