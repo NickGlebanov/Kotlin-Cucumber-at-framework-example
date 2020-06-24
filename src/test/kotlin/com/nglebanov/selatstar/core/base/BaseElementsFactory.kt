@@ -4,7 +4,7 @@ import com.codeborne.selenide.ElementsCollection
 import com.codeborne.selenide.Selenide
 import com.codeborne.selenide.SelenideElement
 
-abstract class BaseElements {
+abstract class BaseElementsFactory {
 
     companion object {
 

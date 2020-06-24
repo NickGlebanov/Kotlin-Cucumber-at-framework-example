@@ -10,7 +10,7 @@ import org.testng.annotations.*
 
 @CucumberOptions(
         features = ["src/test/resources/features"],
-        glue = ["com.nglebanov.selatstar.core.stepdefs", "com.nglebanov.selatstar.market.steps"],
+        glue = ["com.nglebanov.selatstar.market.steps"],
         strict = true
 )
 class CucumberSelenideRunner {
@@ -41,6 +41,9 @@ class CucumberSelenideRunner {
     @Throws(java.lang.Exception::class)
     fun tearDownClass() {
         testNGCucumberRunner!!.finish()
+        println("allure starting...")
+        val projectPath = "${System.getProperty("user.dir")}\\target\\allure-results"
+        Runtime.getRuntime().exec("${System.getProperty("user.dir")}\\allure-2.13.3\\bin\\allure.bat serve $projectPath")
     }
 
 }

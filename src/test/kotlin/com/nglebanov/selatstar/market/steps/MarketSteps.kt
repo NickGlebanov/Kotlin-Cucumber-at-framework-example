@@ -1,29 +1,36 @@
 package com.nglebanov.selatstar.market.steps
 
-import com.codeborne.selenide.Selenide
 import com.nglebanov.selatstar.core.base.BaseSteps
-import com.nglebanov.selatstar.market.elements.MarketElements
+import com.nglebanov.selatstar.market.elements.MarketElementsFactory
+import com.nglebanov.selatstar.market.elements.MarketNotebooksPage
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 
-class MarketSteps(private val marketElements: MarketElements) : BaseSteps() {
+@SpringBootTest
+class MarketSteps : BaseSteps() {
+
+    @Autowired
+    lateinit var marketNotebooksPage: MarketNotebooksPage
+
+    @Autowired
+    lateinit var marketelms: MarketElementsFactory
 
     init {
 
-        And("^open market$") {
-            Selenide.open("https://market.yandex.ru/catalog--noutbuki/54544/list?hid=91013&local-offers-first=0&onstock=1")
+        And("^открываем страницу ноутбуков маркета$") {
+            //Selenide.open(marketNotebooksPage.url)
+            marketelms.filter("Цена")
+
         }
 
-        And("^example market step$") {
-            marketElements.apply {
-
-                filter("Цена, ₽").apply {
-                    numberFieldFrom().value = "1400"
-                    numberFieldTo().value = "9000"
-                    radio("С учётом самовывоза").click()
-                }
-
-                filter("Производитель").checkbox("Acer").click()
-
-                filter("Тип").checkbox("игровой ноутбук").click()
+        And("^сортируем ноутбуки по (новизне|отзывам|популярности|размеру скидки|рейтингу|цене)$") { sortRule: String ->
+            when (sortRule) {
+                //"новизне" -> marketNotebooksPage.Sorts().поНовизне.click()
+                //"отзывам" -> marketNotebooksPage.Sorts().поОтзывам.click()
+                //"популярности" -> marketNotebooksPage.Sorts().поПопулярности.click()
+                //"размеру скидки" -> marketNotebooksPage.Sorts().поРазмеруСкидки.click()
+                //"рейтингу" -> marketNotebooksPage.Sorts().поРейтингу.click()
+                //"цене" -> marketNotebooksPage.Sorts().поЦене.click()
             }
         }
     }
