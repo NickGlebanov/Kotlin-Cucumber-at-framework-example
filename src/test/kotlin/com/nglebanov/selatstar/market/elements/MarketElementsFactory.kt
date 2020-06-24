@@ -1,6 +1,5 @@
 package com.nglebanov.selatstar.market.elements
 
-import com.codeborne.selenide.SelenideElement
 import com.nglebanov.selatstar.core.base.BaseElementsFactory
 import org.springframework.stereotype.Component
 
@@ -12,8 +11,8 @@ class MarketElementsFactory : BaseElementsFactory() {
         return Filter(name = filterName)
     }
 
-    fun sort(sortName: String): SelenideElement {
-        return S("*[data-autotest-id = $sortName]")
+    fun sort(allureName: String, sortName: String): SortLink {
+        return SortLink(allureName, sortName)
     }
 
 }

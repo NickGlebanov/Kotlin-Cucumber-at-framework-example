@@ -30,12 +30,12 @@ class MarketNotebooksPage {
     }
 
     inner class Sorts {
-        val поПопулярности = marketElementsFactory.sort("dpop")
-        val поЦене = marketElementsFactory.sort("dprice")
-        val поРейтингу = marketElementsFactory.sort("quality")
-        val поОтзывам = marketElementsFactory.sort("opinions")
-        val поРазмеруСкидки = marketElementsFactory.sort("discount_p")
-        val поНовизне = marketElementsFactory.sort("ddate")
+        val поПопулярности = marketElementsFactory.sort("популярность", "dpop")
+        val поЦене = marketElementsFactory.sort("цена", "dprice")
+        val поРейтингу = marketElementsFactory.sort("рейтинг", "quality")
+        val поОтзывам = marketElementsFactory.sort("отзывы", "opinions")
+        val поРазмеруСкидки = marketElementsFactory.sort("скидка", "discount_p")
+        val поНовизне = marketElementsFactory.sort("новизна", "ddate")
 
     }
 
