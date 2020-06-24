@@ -13,7 +13,7 @@ class MarketElementsFactory : BaseElementsFactory() {
     }
 
     fun sort(sortName: String): SelenideElement {
-        return S("*[data-autotest-id = dprice]")
+        return S("*[data-autotest-id = $sortName]")
     }
 
 }
