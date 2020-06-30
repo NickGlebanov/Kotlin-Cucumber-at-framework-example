@@ -3,6 +3,8 @@ package com.nglebanov.selatstar.core.testng
 import org.testng.*
 
 class Listener : ITestListener, ISuiteListener, IInvokedMethodListener {
+
+
     // This belongs to ISuiteListener and will execute before the Suite start
     override fun onStart(arg0: ISuite) {
         Reporter.log("About to begin executing Suite " + arg0.name, true)

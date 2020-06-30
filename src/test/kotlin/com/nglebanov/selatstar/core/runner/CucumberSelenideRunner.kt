@@ -1,19 +1,24 @@
 package com.nglebanov.selatstar.core.runner
 
-import com.codeborne.selenide.Selenide
 import io.cucumber.testng.CucumberOptions
 import io.cucumber.testng.FeatureWrapper
 import io.cucumber.testng.PickleWrapper
 import io.cucumber.testng.TestNGCucumberRunner
-import org.testng.annotations.*
+import org.springframework.boot.test.context.SpringBootTest
+import org.testng.annotations.AfterClass
+import org.testng.annotations.BeforeClass
+import org.testng.annotations.DataProvider
+import org.testng.annotations.Test
 
-
+@SpringBootTest
 @CucumberOptions(
         features = ["src/test/resources/features"],
-        glue = ["com.nglebanov.selatstar.market.steps"],
+        glue = ["com.nglebanov.selatstar.market.steps", "com.nglebanov.selatstar.core.hooks"
+            , "com.nglebanov.selatstar.core.techsteps"],
         strict = true
 )
 class CucumberSelenideRunner {
+
     private var testNGCucumberRunner: TestNGCucumberRunner? = null
 
     @BeforeClass(alwaysRun = true)
@@ -29,12 +34,7 @@ class CucumberSelenideRunner {
     @Test(groups = ["cucumber scenarios"], description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
     fun runScenario(pickleEvent: PickleWrapper, cucumberFeatureWrapper: FeatureWrapper) {
         testNGCucumberRunner!!.runScenario(pickleEvent.pickle)
-    }
 
-    @BeforeMethod
-    fun prepareDriver() {
-        println("preparing driver")
-        Selenide.open("https://yandex.ru/")
     }
 
     @AfterClass(alwaysRun = true)
