@@ -1,5 +1,6 @@
 package com.nglebanov.selatstar.core.runner
 
+import com.nglebanov.selatstar.core.helpers.OSHelper
 import io.cucumber.testng.CucumberOptions
 import io.cucumber.testng.FeatureWrapper
 import io.cucumber.testng.PickleWrapper
@@ -41,9 +42,10 @@ class CucumberSelenideRunner {
     @Throws(java.lang.Exception::class)
     fun tearDownClass() {
         testNGCucumberRunner!!.finish()
-        println("allure starting...")
-        val projectPath = "${System.getProperty("user.dir")}\\target\\allure-results"
-        Runtime.getRuntime().exec("${System.getProperty("user.dir")}\\allure-2.13.3\\bin\\allure.bat serve $projectPath")
+        OSHelper.ifWindows {
+            println("allure starting...")
+            val projectPath = "${System.getProperty("user.dir")}\\target\\allure-results"
+            Runtime.getRuntime().exec("${System.getProperty("user.dir")}\\allure-2.13.3\\bin\\allure.bat serve $projectPath")
+        }
     }
-
 }
