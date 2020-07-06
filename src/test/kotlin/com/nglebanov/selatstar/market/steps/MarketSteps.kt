@@ -1,6 +1,7 @@
 package com.nglebanov.selatstar.market.steps
 
 import com.codeborne.selenide.Selenide
+import com.nglebanov.selatstar.core.ashot.AshotService
 import com.nglebanov.selatstar.core.base.BaseSteps
 import com.nglebanov.selatstar.core.context.ThreadContext
 import com.nglebanov.selatstar.market.elements.MarketElementsFactory
@@ -20,10 +21,15 @@ class MarketSteps : BaseSteps() {
     @Autowired
     private lateinit var context: ThreadContext
 
+    @Autowired
+    private lateinit var ashotService: AshotService
+
     init {
 
         And("^открываем страницу ноутбуков маркета$") {
             Selenide.open(marketNotebooksPage.url)
+            ashotService.hideScrollbar()
+            ashotService.takeEtalonScreenshotAndSave("notebooks")
         }
 
         And("^сортируем ноутбуки по (новизне|отзывам|популярности|размеру скидки|рейтингу|цене)$") { sortRule: String ->
